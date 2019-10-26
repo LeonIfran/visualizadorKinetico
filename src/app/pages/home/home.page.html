@@ -1,0 +1,33 @@
+<ion-header>
+    <ion-toolbar class="title-color toolbar-gradient" color="dark">
+      <ion-buttons slot="start">
+        <button class="closeSession" size="small" shape="round" fill="outline" (click)="this._auth.desloguear()">
+          <ion-icon name="power" class="logOutButton" style="color: rgb(255, 255, 255)"></ion-icon>
+        </button>
+<!--         <button class="closeSession" size="small" shape="round" fill="outline" (click)="GoStats()">
+          <ion-icon name="podium" class="logOutButton" color="rojizo"></ion-icon>
+        </button> -->
+      </ion-buttons>
+      <ion-title color="light">
+          Inicio
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content class="no-scroll">
+      <div class="flex-v height-100">
+        <button class="height-50 width-100 big-button-container-first ripple" (click)="irACosas('lindas')">
+          <div class="height-100 width-100 center-horizontal center-vertical">
+            <ion-icon name="ribbon" class="buttonIcon"></ion-icon>
+            <div class="text-title">Cosas Lindas del Edificio</div>
+          </div>
+        </button>
+        <button class="height-50 width-100 big-button-container-second ripple" (click)="irACosas('feas')">
+          <div class="height-100 width-100 center-horizontal center-vertical">
+            <ion-icon name="trash" class="buttonIcon"></ion-icon>
+            <div class="text-title">Cosas Feas del Edificio</div>
+          </div>
+        </button>
+      </div>
+    </ion-content>
+  

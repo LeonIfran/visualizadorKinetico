@@ -1,3 +1,17 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <div *ngIf="showSplash" class="splash">
+      <div class="spinner" [ngClass]="{
+                'spinner-landscape': this.platform.isLandscape(),
+                'spinner-portrait': !this.platform.isLandscape()
+              }">
+        <img src="../assets/splash_texto.png">
+      </div>
+      <div class="ld ld-blur spinner" [ngClass]="{
+                'spinner-landscape': this.platform.isLandscape(),
+                'spinner-portrait': !this.platform.isLandscape()
+              }">
+        <img src="../assets/splash_logo.png">
+      </div>
+    </div>
+<ion-router-outlet></ion-router-outlet>
 </ion-app>

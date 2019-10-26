@@ -1,0 +1,71 @@
+
+<ion-content color='primary'>
+
+    <img style="margin-top:20px" class="displayed" height="80 px" width="80px" src='../../../assets/graficos/house.png'>
+
+    
+
+  <ion-card color="sombra">
+    <ion-card-header>
+      <ion-card-title>Registro</ion-card-title>
+    </ion-card-header>
+    <ion-card-content *ngIf="this.formGroup != undefined">
+      <form [formGroup]="this.formGroup">
+    <ion-item color="tinte">
+        <ion-label position="stacked">E-mail</ion-label>
+        <ion-input type="email" formControlName="correo"></ion-input>
+        <div *ngIf="this.formGroup.controls.correo.touched == true &&
+        this.formGroup.controls.correo.errors != undefined">
+        <div *ngIf="this.formGroup.controls.correo.errors.required !=
+          undefined">
+          El correo es requerido
+        </div>
+        <div *ngIf="this.formGroup.controls.correo.errors.email !=
+          undefined">
+          El correo no tiene el formato correcto
+        </div>
+      </div>
+    </ion-item>
+    <ion-item color="tinte">
+        <ion-label position="stacked">Contraseña</ion-label>
+        <ion-input type="password" formControlName="clave"></ion-input>
+        <div *ngIf="this.formGroup.controls.clave.touched == true &&
+        this.formGroup.controls.clave.errors != undefined">
+        <div *ngIf="this.formGroup.controls.clave.errors.required !=
+          undefined">
+          La clave es requerida
+        </div>
+        <div *ngIf="this.formGroup.controls.clave.errors.minlength !=
+          undefined">
+          La clave no debe ser de menos de 6 carácteres
+        </div>
+      </div>
+    </ion-item>
+<!--     <ion-item color="sombra" slot="start">
+        <ion-button color="secondary" size="large" fill="clear" [disabled]="!this.formGroup.valid"
+        (click)="iniciarSesion()" class="ion-text-center">Aceptar</ion-button>
+    </ion-item>
+    <ion-item color="sombra" slot="end">
+        <ion-button color="secondary" size="large" fill="outline" [disabled]="!this.formGroup.valid"
+        (click)="this.limpiarForm()" class="ion-text-center">Borrar</ion-button>
+    </ion-item> -->
+    <ion-button color="tinte" size="large" fill="clear" expand="full" [disabled]="!this.formGroup.valid"
+    (click)="iniciarSesion()" class="ion-text-center">Aceptar</ion-button>
+  </form>
+  </ion-card-content>
+  </ion-card>
+<!--   <ion-card color="sombra">
+
+       
+  </ion-card> -->
+
+  <div class="mayor" padding="0px 1px 1px 0px">
+    <div class="ion-padding">  <ion-button color="tinte" expand="block" (click)="rellenarCampos('admin')" >Admin</ion-button></div>
+    <div class="ion-padding">  <ion-button color="sombra" expand="block" (click)="rellenarCampos('invitado')">Invitado</ion-button></div>
+    <div class="ion-padding">  <ion-button color="tinte" expand="block" (click)="rellenarCampos('usuario')" >Usuario</ion-button></div>
+    <div class="ion-padding">  <ion-button color="sombra" expand="block" (click)="rellenarCampos('anonimo')">Anonimo</ion-button></div>
+    <div class="ion-padding">  <ion-button color="tinte" expand="block" (click)="rellenarCampos('tester')">Tester</ion-button></div>
+  </div>
+    
+  
+</ion-content>

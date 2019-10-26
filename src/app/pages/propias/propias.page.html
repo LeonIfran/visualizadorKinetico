@@ -1,0 +1,33 @@
+<ion-header>
+    <ion-toolbar class="title-color toolbar-gradient" color="dark">
+      <ion-buttons slot="start">
+        <ion-button (click)="this._auth.desloguear()" color="light">
+          <ion-icon name="power"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>
+        {{this._auth.username != null ? this._auth.username : 'propias' |
+        titlecase}}
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content class="background-page" ion-padding>
+    <div *ngIf="this._fotoServ.propias.length == 0">
+      <div class="flex-v width-100 center-horizontal center-vertical waiting"
+        *ngIf="this._fotoServ.esperando == true">
+        Espere un momento...<ion-spinner color="primary"></ion-spinner>
+      </div>
+      <div class="width-100 center-horizontal center-vertical waiting"
+        *ngIf="this._fotoServ.esperando == false">
+        No hay imagenes.
+      </div>
+    </div>
+    <ion-slides *ngIf="this._fotoServ.propias.length != 0"
+      #slideAux class="height-100 width-100">
+      <ion-slide *ngFor="let foto of this._fotoServ.propias" class="list-pic">
+        <img [src]="foto.link" (click)="this._fotoServ.mostrarPop(foto)">
+      </ion-slide>
+    </ion-slides>
+  </ion-content>
+  
